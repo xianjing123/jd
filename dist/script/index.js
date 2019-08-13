@@ -1,4 +1,4 @@
-(function(){
+function menu(){
     let lis = document.querySelectorAll('.row')
     for (let i = 0; i < lis.length; i++) {
         lis[i].onmouseover = function () {
@@ -14,8 +14,7 @@
             }
         }
     }
-})();
-
+}
 (function(){
     $('.search .logo').mouseover(function(){
         if($('.search .logo img')[0].src.indexOf('gif')!==-1){
@@ -26,4 +25,16 @@
             $('.search .logo img')[0].src='http://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/header/sprite.png'
         },5000)
     })
+})();
+
+(function(){
+    let cookie = getCookie('username')
+    if(cookie){
+        $('.nav .login').html(cookie).css({
+            color:'red',
+            cursor:'pointer',
+            fontSize:'18px'
+        })
+        $('.nav .register').remove()
+    }
 })();

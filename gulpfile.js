@@ -30,7 +30,17 @@ function copyHtml() {
 }
 myapp.task('copy-html', copyHtml)
 
-var copyAll = myapp.parallel(copyIndex, copyHtml, js, lib, Sass)
+function php() {
+    return myapp.src('./src/php/**/*.php').pipe(myapp.dest('./dist/php'))
+}
+myapp.task('copy-php',php)
+
+function copyImg() {
+    return myapp.src('./src/resource/imgs/*.{jpeg,jpg,gif,png}').pipe(myapp.dest('./dist/resource/imgs'))
+}
+myapp.task('copy-img',copyImg)
+
+var copyAll = myapp.parallel(copyIndex, copyHtml, js, lib, Sass,php,copyImg)
 myapp.task('copy-all', copyAll);
 
 function watch(){
@@ -39,5 +49,7 @@ function watch(){
     myapp.watch('./src/lib/**',lib)
     myapp.watch('./src/script/**/*.js',js)
     myapp.watch('./src/html/**/*.html',copyHtml)
+    myapp.watch('./src/php/**/*.php',php)
+    myapp.watch('./src/resource/imgs/*.{jpeg,jpg,gif,png}',copyImg)
 }
 myapp.task('watch',watch)

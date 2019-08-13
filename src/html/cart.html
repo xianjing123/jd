@@ -1,12 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../style/cart.css">
+    <script src="../script/cookie.js"></script>
+    <script src="../lib/jquery-3.4.1.min.js"></script>
+    <script>
+        if (!getCookie('username')) {
+            location.href = "../html/login.html"
+        }
+    </script>
 </head>
+
 <body>
-    <h1>购物车页</h1>
+    <div class="top">
+        <div class="layout">
+            <span class="address">辽宁</span>
+            <ul class="nav">
+                <li class="row login">
+                    <a href="../html/login.html">你好，请登录</a>
+                </li>
+                <li class="register row">
+                    <a href="../html/register.html" target="_blank">免费注册</a>
+                </li>
+                <li class="row">
+                    <span>我的订单</span>
+                </li>
+                <li class="row">
+                    <span>我的京东</span>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+                <li class="row">
+                    <span>京东会员</span>
+                </li>
+                <li class="row enterprise">
+                    <span>企业采购</span>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+                <li class="row">
+                    <span>客户服务</span>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+                <li class="row">
+                    <span>网站导航</span>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+                <li class="row">
+                    <span>手机京东</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="shopcart">
+        <table>
+            <thead>
+                <td><label>全选:<input type="checkbox"></label></td>
+                <td>商品名称</td>
+                <td>商品价格</td>
+                <td>商品图片</td>
+                <td>个数</td>
+                <td>小计</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td class="name">鼠标</td>
+                    <td class="price">￥188</td>
+                    <td><img src="../resource/imgs/shubiao.jpg" alt=""></td>
+                    <td>
+                        <button class="prev">－</button>
+                        <span class="count">1</span>
+                        <button class="next">＋</button>
+                    </td>
+                    <td class="sum">￥188</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td class="name">键盘</td>
+                    <td class="price">￥1888</td>
+                    <td><img src="../resource/imgs/jianpan.jpg" alt=""></td>
+                    <td>
+                        <button class="prev">－</button>
+                        <span class="count">1</span>
+                        <button class="next">＋</button>
+                    </td>
+                    <td class="sum">￥1888</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../script/cart.js"></script>
 </body>
+
 </html>
