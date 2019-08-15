@@ -108,6 +108,14 @@ menu();
         }
         $('.item-recommend').eq(index).addClass('item-active')
     })
+
+    for(let i = 0;i<$('.data-index').length;i++){
+        $('.data-index').eq(i).on('mouseenter',function(){
+            $('.menu-child').eq(i).css('display','block')
+        }).on('mouseleave',function(){
+            $('.menu-child').eq(i).css('display','none')
+        })
+    }
 })();
 
 //判断账户信息

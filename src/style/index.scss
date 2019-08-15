@@ -1,5 +1,8 @@
 @import './default';
 @import './top';
+@function top($num){
+    @return $num * -22px
+}
 body{
     background:#f4f4f4;
 }
@@ -38,6 +41,48 @@ main{
             width:190px;
             height:100%;
             background:white;
+            box-sizing: border-box;
+            padding-top:10px;
+            .menu{
+                @for $i from 1 through 18{
+                    .data-index:nth-of-type(#{$i}){
+                        user-select: none;
+                        height:25px;
+                        p{
+                            transition:.2s;
+                            padding-left:15px;
+                            &:hover{
+                                background:#ddd;
+                            }
+                            a{
+                                font-size:14px;
+                                color:#444;
+                                line-height:25px;
+                                &:hover{
+                                    color:red;
+                                }
+                            }
+                        }
+                        .menu-child{
+                            position: relative;
+                            left:190px;
+                            top:$i * -25px;
+                            margin-top:-10px;
+                            width:1000px;
+                            height:470px;
+                            background:orange;
+                            z-index:3;
+                            display:none;
+                            li{
+                                color:white;
+                                &:hover{
+                                    color:red;
+                                }
+                            }
+                        }                    
+                    }
+                }
+            }
         }
         .col2{
             margin:0 10px;
