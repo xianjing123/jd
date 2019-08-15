@@ -5,7 +5,7 @@ $fontColor:#aaa;
     height:30px;
     border-bottom:1px solid #ddd;
     .layout{
-        width:1200px;
+        width:1190px;
         margin:0 auto;
         display:flex;
         align-items:center;
@@ -35,6 +35,13 @@ $fontColor:#aaa;
                     left:-1px;
                     top:-2px;
                     z-index:-1;
+                    li{
+                        color:$fontColor;
+                        font-size:14px;
+                        &:hover{
+                            color:red;
+                        }
+                    }
                 }
             }
             .row:hover{

@@ -27,6 +27,7 @@
 $('.login-box button').on('click',function(){
     if($('.username').val()===''||$('.password').val()===''){
         $('.login-box .tips').css('visibility','visible')
+        $('.login-box .tips span').html('请输入用户名和密码')
         return;
     }
     $.ajax({
@@ -37,9 +38,11 @@ $('.login-box button').on('click',function(){
             password:$('.password').val()
         },
         success:function(data){
-            console.log(data)
             if(data.result){
                 location.href="../index.html"
+            }else{
+                $('.login-box .tips').css('visibility','visible')
+                $('.login-box .tips span').html('用户名或密码错误')
             }
         }
     })

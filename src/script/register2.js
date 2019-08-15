@@ -110,4 +110,7 @@
             return;
         }
     }
+    $('.welcome img').onclick = function(){
+        location.href = '../index.html'
+    }
 })();
