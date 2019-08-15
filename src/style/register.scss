@@ -1,0 +1,151 @@
+@import './default.scss';
+$fontColor:#777;
+header{
+    box-shadow: 0 3px 5px #eee;
+    .layout {
+        width: 1210px;
+        background: white;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .welcome {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 60px;
+
+            img {
+                width: 170px;
+                height: 60px;
+                display: block;
+                float: left;
+                cursor: pointer;
+            }
+
+            h2 {
+                margin-left: 20px;
+                padding-top: 10px;
+                font-weight: normal;
+                float: left;
+            }
+
+            .questionnaire {
+                font-size: 14px;
+                padding-top: 40px;
+                color: $fontColor;
+                font-size:16px;
+                a{
+                    color:#e22;
+                    &:hover{
+                        color:#c81623;
+                        text-decoration:underline;
+                    }
+                }
+            }
+        }
+    }
+}
+.input{
+    width:100%;
+    height:52px;
+}
+main{
+    width:1210px;
+    margin:0 auto;
+    position: relative;
+    .phone{
+        width:398px;
+        margin:50px auto 0;
+        .input-tips{
+            font-size:14px;
+            color:#999;
+            margin-top:3px;
+            visibility: hidden;
+        }
+        .input-phone{
+            @extend .input;
+            display:flex;
+            .area{
+                flex:1;
+                cursor:pointer;
+                text-align:center;
+                line-height:52px;
+                border-left:1px solid #ccc;
+                border-bottom:1px solid #ccc;
+                border-top:1px solid #ccc;
+            }
+            .input-wrap{
+                width:290px;
+                height:100%;
+                border:1px solid #ccc;
+                box-sizing: border-box;
+                input{
+                    border:none;
+                    height:100%;
+                    width:100%;
+                    outline:none;
+                    box-sizing:border-box;
+                    padding-left:10px;
+                    font-size:16px;
+                    color:black;
+                    &::-webkit-input-placeholder{
+                        color:#ccc;
+                    }
+                    &::-moz-placeholder{
+                        color:#ccc;
+                    }
+                    &:-ms-input-placeholder{
+                        color:#ccc;
+                    }
+                }
+            }
+        }
+        .input-button{
+            @extend .input;
+            border:1px solid #ccc;
+            &:hover{
+                border:1px solid #777;
+            }
+            margin-top:20px;
+            font-size:14px;
+            text-align:center;
+            line-height:52px;
+            cursor:pointer;
+        }
+        .submit{
+            border:none;
+            outline:none;
+            background:#e2231a;
+            margin-top:50px;
+            width:100%;
+            height:52px;
+            font-size:18px;
+            color:white;
+            cursor:pointer;
+            &:hover{
+                background:#c81623;
+            }
+        }
+        .other{
+            width:100%;
+            height:28px;
+            display:flex;
+            justify-content: space-between;
+            margin-top:20px;
+            a{
+                &:hover{
+                    color:#c81623;
+                }
+            }
+        }
+    }
+    @import './bar';
+}
+footer{
+    width:1200px;
+    margin:100px auto 0;
+    height:100px;
+    border-top:1px solid #ddd;
+    text-align:center;
+    line-height:100px;
+}

@@ -1,0 +1,47 @@
+.bar{
+    width:400px;
+    height:55px;
+    display:flex;
+    margin:80px auto 0;
+    color:$fontColor;
+    .step{
+        box-sizing: border-box;
+        line-height: 30px;
+        p{
+            width:24px;
+            height:24px;
+            background:white;
+            border:1px solid #ccc;
+            border-radius:50%;
+            text-align: center;
+            line-height:24px;
+            margin:0 auto;
+            font-family: 12px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+            font-weight: bold;
+        }
+        span{
+            font-size:12px;
+        }
+    }
+    .line{
+        letter-spacing:3px;
+        font-size:18px;
+        color:$fontColor;
+    }
+    .active{
+        p{
+            color:white;
+            background:#3b4;
+            border:none;
+        }
+        span{
+            color:#3b4;
+        }
+    }
+    .win{
+        color:#3b4;
+        p{
+            border-color:#3b4;
+        }
+    }
+}

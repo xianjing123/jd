@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>购物车</title>
     <link rel="stylesheet" href="../style/cart.css">
     <script src="../script/cookie.js"></script>
     <script src="../lib/jquery-3.4.1.min.js"></script>
@@ -71,7 +71,9 @@
             </ul>
         </div>
     </div>
+    <img src="//misc.360buyimg.com/lib/img/e/logo-201305-b.png" alt="" class="logo">
     <div class="shopcart">
+        <a href="javascript:;" class="signout">退出登录</a>
         <table>
             <thead>
                 <td><label>全选:<input type="checkbox"></label></td>
@@ -82,32 +84,9 @@
                 <td>小计</td>
             </thead>
             <tbody>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="name">鼠标</td>
-                    <td class="price">￥188</td>
-                    <td><img src="../resource/imgs/shubiao.jpg" alt=""></td>
-                    <td>
-                        <button class="prev">－</button>
-                        <span class="count">1</span>
-                        <button class="next">＋</button>
-                    </td>
-                    <td class="sum">￥188</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="name">键盘</td>
-                    <td class="price">￥1888</td>
-                    <td><img src="../resource/imgs/jianpan.jpg" alt=""></td>
-                    <td>
-                        <button class="prev">－</button>
-                        <span class="count">1</span>
-                        <button class="next">＋</button>
-                    </td>
-                    <td class="sum">￥1888</td>
-                </tr>
             </tbody>
         </table>
+        <div class="total"></div>
     </div>
     <script src="../script/cart.js"></script>
 </body>

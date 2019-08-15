@@ -28,57 +28,81 @@
         $('.nav .register').remove()
     }
 })();
-//全选功能
-(function(){
-    var input = document.querySelector('.shopcart thead input[type=checkbox]')
-    var checkboxs = document.querySelectorAll('.shopcart tbody input[type=checkbox]')
-    input.onclick = function(){
-        for(var i = 0;i<checkboxs.length;i++){
-            checkboxs[i].checked = input.checked
-        }
+(function () {
+    //全选功能
+    $('thead input[type="checkbox"]').on('change',function () {
+        $('tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'))
+    })
+    $('tbody').on('change','input[type="checkbox"]',function(){
+        $('thead input[type="checkbox"]').prop('checked',
+            $('tbody input[type="checkbox"]:checked').length === $('tbody input[type="checkbox"]').length)
+    })
+
+    function sum($tr) {
+        var price = parseInt($tr.find('.price').html().slice(1))   //html()取得的是字符串
+        var count = parseInt($tr.find('.count').html())   //html()取得的是字符串
+        $tr.find('.sum').html('￥' + price * count);   // * 将字符串转换成了数字
     }
-})();
-//反选功能
-(function(){
-    var input = document.querySelectorAll('.shopcart tbody input[type=checkbox]')
-    var length;
-    for(var i = 0;i<input.length;i++){
-        input[i].onclick = function(){
-            length = document.querySelectorAll('.shopcart tbody input[type=checkbox]:checked').length === input.length
-            document.querySelector('.shopcart thead input[type=checkbox]').checked = length
+
+    //改变商品个数
+    $('tbody').on('click', '.minus', function () {
+        //this就是那个减号
+        // $(this).next()[0].innerHTML -= 1;   //a-b会将ab转数字
+        var count = $(this).next().html();
+        if (count === '1') {
+            return;
         }
-    }
-})();
-//增加个数
-(function(){
-    var add = document.querySelectorAll('.next')
-    for(let i = 0;i<add.length;i++){
-        add[i].onclick = function(){
-            if (this.previousElementSibling.innerHTML === '99') {
-                return;
-            }
-            this.previousElementSibling.innerHTML++
-            sum(this.previousElementSibling)
+        count--;
+        // console.log(count)
+        $(this).next().html(count)
+        sum($(this).parents('tr'))
+    })
+
+    $('tbody').on('click', '.add', function () {
+        //this就是那个减号
+        // $(this).next()[0].innerHTML -= 1;   //a-b会将ab转数字
+        var count = $(this).prev().html();
+        if (count === '99') {
+            return;
         }
-    }
-})();
-//减少个数
-(function(){
-    var minus = document.querySelectorAll('.prev')
-    for(let i = 0;i<minus.length;i++){
-        minus[i].onclick = function(){
-            if (this.nextElementSibling.innerHTML === '1') {
-                return;
-            }
-            this.nextElementSibling.innerHTML--
-            sum(this.nextElementSibling)
+        count++;
+        // console.log(count)
+        $(this).prev().html(count)
+        sum($(this).parents('tr'))
+    })
+
+
+    //发送ajax，取得购物车信息
+    $.get('../php/cart.php', function (resp) {
+        console.log(resp)
+        if(resp==''){
+            $('tbody').html('<span>购物车还没有商品</span>')
+            return;
         }
-    }
+        var trs = resp.map(function (product) {
+            return `
+            <tr>
+                <td><label><input type="checkbox"></label></td>
+                <td>${product.name}</td>
+                <td class="price">￥${product.price}</td>
+                <td><img src="${product.img}" alt=""></td>
+                <td>
+                    <button class="minus">-</button>
+                    <span class="count">${product.count}</span>
+                    <button class="add">+</button>
+                </td>
+                <td class="sum">￥${product.price * product.count}</td>
+            </tr>
+        `})
+
+        $('tbody').html(trs.join(''))
+    })
+    $('.signout').click(function(){
+        removeCookie('userid','/')
+        removeCookie('username','/')
+        location.reload()
+    })
+    $('.logo').click(function(){
+        location.href = '../index.html'
+    })
 })();
-//改变小计
-function sum(tr){
-    let price = tr.parentNode.previousElementSibling.previousElementSibling.innerHTML
-    let count = tr.innerHTML
-    price = price.slice(1)
-    tr.parentNode.nextElementSibling.innerHTML = '￥' + price * count
-}

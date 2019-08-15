@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>个人注册</title>
-    <link rel="stylesheet" href="../style/register.css">
+    <link rel="stylesheet" href="../style/register2.css">
+    <title>Document</title>
 </head>
 
 <body>
@@ -25,12 +25,12 @@
     </header>
     <main>
         <div class="bar">
-            <div class="step active">
-                <p>1</p>
+            <div class="step win">
+                <p>✔</p>
                 <span>验证手机号</span>
             </div>
             <div class="line">··········></div>
-            <div class="step">
+            <div class="step active">
                 <p>2</p>
                 <span>填写账号信息</span>
             </div>
@@ -40,24 +40,27 @@
                 <span>注册成功</span>
             </div>
         </div>
-        <div class="phone">
-            <div class="input-phone">
-                <div class="area">中国</div>
-                <div class="input-wrap">
-                    <input type="text" placeholder="建议使用常用手机号">
-                </div>
+        <div class="users">
+            <div class="username">
+                <label>用　户　名</label>
+                <input type="text" placeholder="您的账户名和登录名">
             </div>
-            <p class="input-tips">验证完成后，你可以使用该手机登录或找回密码</p>
-            <div class="input-button">点击按钮进行验证</div>
-            <button class="submit">下一步</button>
-            <div class="other">
-                <a href="javascript:;">企业用户注册</a>
-                <a href="javascript:;">海外用户注册</a>
+            <p class="tips">支持6-16位英文字符，包括数字，“_”</p>
+            <div class="password">
+                <label>设 置 密 码</label>
+                <input type="password" placeholder="建议使用两种或两种以上字符组合">
             </div>
+            <p class="tips">支持6-16位英文字符，包括数字，“_”</p>
+            <div class="repeat">
+                <label>确 认 密 码</label>
+                <input type="password" placeholder="请再次输入密码">
+            </div>
+            <p class="tips">请再次确认密码</p>
+            <button class="submit">立即注册</button>
         </div>
     </main>
     <footer>制作者：xxx</footer>
-    <script src="../script/register.js"></script>
+    <script src="../script/register2.js"></script>
 </body>
 
 </html>

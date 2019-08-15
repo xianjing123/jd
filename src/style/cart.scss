@@ -4,6 +4,10 @@
 .shopcart{
     width:1200px;
     margin:100px auto 0 auto;
+    input{
+        width:25px;
+        height:25px;
+    }
     td{
         width:100px;
         height:50px;
@@ -18,4 +22,7 @@
         display:block;
         width:100px;
     }
+}
+.logo{
+    cursor: pointer;
 }

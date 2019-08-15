@@ -17,6 +17,7 @@
             height: 60px;
             display: block;
             float: left;
+            cursor: pointer;
         }
 
         h2 {
@@ -53,7 +54,6 @@ main {
             right: 0;
             top: 30px;
             z-index: 999;
-
             .login {
                 height: 55px;
                 background: white;
@@ -74,7 +74,6 @@ main {
                         border-right: 1px solid #ccc;
                         cursor: pointer;
                         user-select: none;
-
                         &:hover {
                             color: red;
                             font-weight: bold;
@@ -99,12 +98,47 @@ main {
                 }
 
             }
-
+            .hidden{
+                display: none;
+            }
+            .login-code{
+                width:306px;
+                margin:30px auto 0 auto;
+                display:flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align:center;
+                position: relative;
+                &:hover{
+                    .erweima{
+                        left:-64px;
+                    }
+                }
+                .erweima{
+                    display:inline-block;
+                    padding:8px;
+                    border:1px solid #f1f1f1;
+                    position: relative;
+                    transition:.3s;
+                    left:0px;
+                }
+                .help{
+                    position: absolute;
+                    right:-20px;
+                    top:0;
+                    display:none;
+                }
+                p{
+                    margin-top:10px;
+                    width:100%;
+                    font-size:14px;
+                    color:#777;
+                }
+            }
             .login-box {
                 width: 306px;
                 margin: 0 auto;
                 box-sizing: border-box;
-
                 .tips {
                     width: 100%;
                     height: 23px;

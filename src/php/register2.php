@@ -1,5 +1,6 @@
 <?php
     $username = $_POST['username'];
+    $password = $_POST['password'];
 
     $conn = new mysqli('localhost','root','','jd');
 
@@ -18,8 +19,21 @@
 
     if($result && $result->num_rows > 0){
         echo "existing";
-    }else{
-        echo "success";
+        return;
     }
-    
+
+    $sql = "
+        INSERT INTO `users`
+        (`id`,`username`,`password`)
+        VALUES
+        (NULL,'$username','$password')
+    ";
+
+    $result = $conn->query($sql);
+    if($result){
+        echo "success";
+    }else{
+        echo json_encode($result);
+    }
+
     $conn->close();

@@ -15,6 +15,7 @@ function menu(){
         }
     }
 }
+menu();
 (function(){
     $('.search .logo').mouseover(function(){
         if($('.search .logo img')[0].src.indexOf('gif')!==-1){
@@ -30,10 +31,11 @@ function menu(){
 (function(){
     let cookie = getCookie('username')
     if(cookie){
-        $('.nav .login').html(cookie).css({
+        $('.nav .login').html('欢迎回来，'+cookie).css({
             color:'red',
             cursor:'pointer',
-            fontSize:'18px'
+            fontSize:'16px',
+            width:'200px'
         })
         $('.nav .register').remove()
     }
