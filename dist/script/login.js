@@ -55,6 +55,19 @@ $('.login-code').on('mouseenter',function(evt){
 }).on('mouseleave',function(){
     $('.help').css('display','none')
 });
+//点击input改变label颜色
+(function(){
+    $('.input .username').on('focus',function(){
+        $('.input .user').eq(0).css('background','#ddd')
+    }).on('blur',function(){
+        $('.input .user').eq(0).css('background','#f1f1f1')
+    })
+    $('.input .password').on('focus',function(){
+        $('.input .user').eq(1).css('background','#ddd')
+    }).on('blur',function(){
+        $('.input .user').eq(1).css('background','#f1f1f1')
+    })
+})();
 //返回首页
 (function(){
     $('.welcome img').click(function(){

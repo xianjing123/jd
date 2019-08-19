@@ -3,16 +3,18 @@
         return document.querySelector(element)
     }
     //所有提示框的显示与隐藏
-    var all = document.querySelectorAll('.users div input')
-    var tips = document.querySelectorAll('.tips')
-    for(let i = 0; i<all.length; i++){
-        all[i].onfocus = function(){
-            tips[i].style.visibility = 'visible'
+    (function(){
+        var all = document.querySelectorAll('.users div input')
+        var tips = document.querySelectorAll('.tips')
+        for(let i = 0; i<all.length; i++){
+            all[i].onfocus = function(){
+                tips[i].style.visibility = 'visible'
+            }
+            all[i].onblur = function(){
+                tips[i].style.visibility = 'hidden'
+            }
         }
-        all[i].onblur = function(){
-            tips[i].style.visibility = 'hidden'
-        }
-    }
+    })()
     //重复密码
     function repeat(){
         var tips = $('.tips:last-of-type')
