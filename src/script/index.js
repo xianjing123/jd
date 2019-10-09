@@ -270,7 +270,7 @@ menu();
             let now = new Date()
             let d1 = new Date(year,month,date,min+days-1)
             let id = now.getHours()>=min&now.getHours()<min+days&now.getDate()===date&now.getMonth()+1===month&now.getFullYear()===year?true:false
-            let hourNow = id?d1.getHours()-now.getHours():00
+            let hourNow = id?d1.getHours()-now.getHours():(min-now.getHours()>0?days:00)
             let minuteNow = id?60-now.getMinutes():00
             let secondNow = id?60-now.getSeconds():00
 
